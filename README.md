@@ -3,7 +3,7 @@ An analytics chart of the cloudflare dash board by using cloudflare api.
 
 ## Demo
 
-See [my website](https://4o5.xyz/admin/analytics)
+See [my website](https://4o5.xyz/admin/analytics.php)
 
 ## Usage
 
