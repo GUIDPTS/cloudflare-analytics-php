@@ -33,11 +33,17 @@
     <style type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"></style>
 </head>
 <body>
-    <div style="display: block;width: 50%;height: 50%;float: left;">
+    <div style="display: block;width: 45%;height: 45%;float: left;padding: 20px 20px 20px 20px;">
         <canvas id="basic"></canvas>
     </div>
-    <div style="display: block;width: 50%;height: 50%;float: right;">
+    <div style="display: block;width: 45%;height: 45%;float: right;padding: 20px 20px 20px 20px;">
         <canvas id="type"></canvas>
+    </div>
+    <div style="display: block;width: 45%;height: 45%;float: left;padding: 20px 20px 20px 20px;">
+        <canvas id="ssl"></canvas>
+    </div>
+    <div style="display: block;width: 45%;height: 45%;float: right;padding: 20px 20px 20px 20px;">
+        <canvas id="search"></canvas>
     </div>
     <script>
         var httpRequest = new XMLHttpRequest(),data;
@@ -141,82 +147,176 @@
                     datasets: [
                         {
                             label: 'css',
-                            backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(255, 99, 132, 0.2)','rgba(255, 99, 132, 0.2)','rgba(255, 99, 132, 0.2)','rgba(255, 99, 132, 0.2)','rgba(255, 99, 132, 0.2)','rgba(255, 99, 132, 0.2)'],
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)'],
                             borderColor: ['rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)','rgba(255, 99, 132, 1)'],
                             data: [cssArray[0],cssArray[1],cssArray[2],cssArray[3],cssArray[4],cssArray[5],cssArray[6]]
                         },
                         {
                             label: 'empty',
-                            backgroundColor: ['rgba(54, 162, 235, 0.2)','rgba(54, 162, 235, 0.2)','rgba(54, 162, 235, 0.2)','rgba(54, 162, 235, 0.2)','rgba(54, 162, 235, 0.2)','rgba(54, 162, 235, 0.2)','rgba(54, 162, 235, 0.2)'],
+                            backgroundColor: ['rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)'],
                             borderColor: ['rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)'],
                             data: [emptyArray[0],emptyArray[1],emptyArray[2],emptyArray[3],emptyArray[4],emptyArray[5],emptyArray[6]]
                         },
                         {
                             label: 'gif',
-                            backgroundColor: ['rgba(255, 206, 86, 0.2)','rgba(255, 206, 86, 0.2)','rgba(255, 206, 86, 0.2)','rgba(255, 206, 86, 0.2)','rgba(255, 206, 86, 0.2)','rgba(255, 206, 86, 0.2)','rgba(255, 206, 86, 0.2)'],
+                            backgroundColor: ['rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)'],
                             borderColor: ['rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)','rgba(255, 206, 86, 1)'],
                             data: [gifArray[0],gifArray[1],gifArray[2],gifArray[3],gifArray[4],gifArray[5],gifArray[6]]
                         },
                         {
                             label: 'html',
-                            backgroundColor: ['rgba(153, 102, 255, 0.2)','rgba(153, 102, 255, 0.2)','rgba(153, 102, 255, 0.2)','rgba(153, 102, 255, 0.2)','rgba(153, 102, 255, 0.2)','rgba(153, 102, 255, 0.2)','rgba(153, 102, 255, 0.2)'],
+                            backgroundColor: ['rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)'],
                             borderColor: ['rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)','rgba(153, 102, 255, 1)'],
                             data: [htmlArray[0],htmlArray[1],htmlArray[2],htmlArray[3],htmlArray[4],htmlArray[5],htmlArray[6]]
                         },
                         {
                             label: 'js',
-                            backgroundColor: ['rgba(255, 159, 64, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 159, 64, 0.2)'],
+                            backgroundColor: ['rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)'],
                             borderColor: ['rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)','rgba(255, 159, 64, 1)'],
                             data: [jsArray[0],jsArray[1],jsArray[2],jsArray[3],jsArray[4],jsArray[5],jsArray[6]]
                         },
                         {
                             label: 'jpeg',
-                            backgroundColor: ['rgba(25, 159, 64, 0.2)','rgba(25, 159, 64, 0.2)','rgba(25, 159, 64, 0.2)','rgba(25, 159, 64, 0.2)','rgba(25, 159, 64, 0.2)','rgba(25, 159, 64, 0.2)','rgba(25, 159, 64, 0.2)'],
+                            backgroundColor: ['rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)'],
                             borderColor: ['rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)','rgba(25, 159, 64, 1)'],
                             data: [jpegArray[0],jpegArray[1],jpegArray[2],jpegArray[3],jpegArray[4],jpegArray[5],jpegArray[6]]
                         },
                         {
                             label: 'json',
-                            backgroundColor: ['rgba(25, 15, 64, 0.2)','rgba(25, 15, 64, 0.2)','rgba(25, 15, 64, 0.2)','rgba(25, 15, 64, 0.2)','rgba(25, 15, 64, 0.2)','rgba(25, 15, 64, 0.2)','rgba(25, 15, 64, 0.2)'],
+                            backgroundColor: ['rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)'],
                             borderColor: ['rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)','rgba(25, 15, 64, 1)'],
                             data: [jsonArray[0],jsonArray[1],jsonArray[2],jsonArray[3],jsonArray[4],jsonArray[5],jsonArray[6]]
                         },
                         {
                             label: 'octetStream',
-                            backgroundColor: ['rgba(255, 10, 64, 0.2)','rgba(255, 10, 64, 0.2)','rgba(255, 10, 64, 0.2)','rgba(255, 10, 64, 0.2)','rgba(255, 10, 64, 0.2)','rgba(255, 10, 64, 0.2)','rgba(255, 10, 64, 0.2)'],
+                            backgroundColor: ['rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)'],
                             borderColor: ['rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)','rgba(255, 10, 64, 1)'],
                             data: [octetStreamArray[0],octetStreamArray[1],octetStreamArray[2],octetStreamArray[3],octetStreamArray[4],octetStreamArray[5],octetStreamArray[6]]
                         },
                         {
                             label: 'other',
-                            backgroundColor: ['rgba(55, 10, 64, 0.2)','rgba(55, 10, 64, 0.2)','rgba(55, 10, 64, 0.2)','rgba(55, 10, 64, 0.2)','rgba(55, 10, 64, 0.2)','rgba(55, 10, 64, 0.2)','rgba(55, 10, 64, 0.2)'],
+                            backgroundColor: ['rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)'],
                             borderColor: ['rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)','rgba(55, 10, 64, 1)'],
                             data: [otherArray[0],otherArray[1],otherArray[2],otherArray[3],otherArray[4],otherArray[5],otherArray[6]]
                         },
                         {
                             label: 'plain',
-                            backgroundColor: ['rgba(55, 100, 64, 0.2)','rgba(55, 100, 64, 0.2)','rgba(55, 100, 64, 0.2)','rgba(55, 100, 64, 0.2)','rgba(55, 100, 64, 0.2)','rgba(55, 100, 64, 0.2)','rgba(55, 100, 64, 0.2)'],
+                            backgroundColor: ['rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)'],
                             borderColor: ['rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)','rgba(55, 100, 64, 1)'],
                             data: [plainArray[0],plainArray[1],plainArray[2],plainArray[3],plainArray[4],plainArray[5],plainArray[6]]
                         },
                         {
                             label: 'png',
-                            backgroundColor: ['rgba(64, 100, 10, 0.2)','rgba(64, 100, 10, 0.2)','rgba(64, 100, 10, 0.2)','rgba(64, 100, 10, 0.2)','rgba(64, 100, 10, 0.2)','rgba(64, 100, 10, 0.2)','rgba(64, 100, 10, 0.2)'],
+                            backgroundColor: ['rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)'],
                             borderColor: ['rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)','rgba(64, 100, 10, 1)'],
                             data: [pngArray[0],pngArray[1],pngArray[2],pngArray[3],pngArray[4],pngArray[5],pngArray[6]]
                         },
                         {
                             label: 'svg',
-                            backgroundColor: ['rgba(240, 12, 10, 0.2)','rgba(240, 12, 10, 0.2)','rgba(240, 12, 10, 0.2)','rgba(240, 12, 10, 0.2)','rgba(240, 12, 10, 0.2)','rgba(240, 12, 10, 0.2)','rgba(240, 12, 10, 0.2)'],
+                            backgroundColor: ['rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)'],
                             borderColor: ['rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)','rgba(240, 12, 10, 1)'],
                             data: [svgArray[0],svgArray[1],svgArray[2],svgArray[3],svgArray[4],svgArray[5],svgArray[6]]
                         },
                         {
                             label: 'xml',
-                            backgroundColor: ['rgba(24, 12, 100, 0.2)','rgba(24, 12, 100, 0.2)','rgba(24, 12, 100, 0.2)','rgba(24, 12, 100, 0.2)','rgba(24, 12, 100, 0.2)','rgba(24, 12, 100, 0.2)','rgba(24, 12, 100, 0.2)'],
+                            backgroundColor: ['rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)'],
                             borderColor: ['rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)','rgba(24, 12, 100, 1)'],
                             data: [xmlArray[0],xmlArray[1],xmlArray[2],xmlArray[3],xmlArray[4],xmlArray[5],xmlArray[6]]
                         }
+                    ]
+                }
+            })
+            //ssl protocol
+            var tls2Array = new Array();//TLSv1.2
+            var tls3Array = new Array();//TLSv1.3
+            var noneArray = new Array();
+            for(var i = 0;i < 7;i++){
+                tls2Array[i] = data.result.timeseries[i].requests.ssl_protocol['TLSv1.2'];
+                tls3Array[i] = data.result.timeseries[i].requests.ssl_protocol['TLSv1.3'];
+                noneArray[i] = data.result.timeseries[i].requests.ssl_protocol.none;
+            }
+            var ctx3 = document.getElementById("ssl").getContext("2d");
+            var pieCharData = new Chart(ctx3,{
+                type: 'pie',
+                data: {
+                    labels: ['TLSv1.3','TLSv1.2','none'],
+                    datasets: [
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                            data: [tls3Array[6],tls2Array[6],noneArray[6]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                            data: [tls3Array[5],tls2Array[5],noneArray[5]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                            data: [tls3Array[4],tls2Array[4],noneArray[4]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                            data: [tls3Array[3],tls2Array[3],noneArray[3]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                            data: [tls3Array[2],tls2Array[2],noneArray[2]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                            data: [tls3Array[1],tls2Array[1],noneArray[1]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                            data: [tls3Array[0],tls2Array[0],noneArray[0]]
+                        }
+                    ]
+                }
+            })
+            //search engine
+            var baiduArray = new Array();
+            var bingArray = new Array();
+            var googleArray = new Array();
+            var yandexArray = new Array();
+            for(var i = 0;i < 7;i++){
+                baiduArray[i] = data.result.timeseries[i].pageviews.search_engine.hasOwnProperty("baiduspider") ? data.result.timeseries[i].pageviews.search_engine.baiduspider : 0;
+                bingArray[i] = data.result.timeseries[i].pageviews.search_engine.hasOwnProperty("bingbot") ? data.result.timeseries[i].pageviews.search_engine.bingbot : 0;
+                googleArray[i] = data.result.timeseries[i].pageviews.search_engine.hasOwnProperty("googlebot") ? data.result.timeseries[i].pageviews.search_engine.googlebot : 0;
+                yandexArray[i] = data.result.timeseries[i].pageviews.search_engine.hasOwnProperty("yandexbot") ? data.result.timeseries[i].pageviews.search_engine.yandexbot : 0;
+            }
+            var ctx4 = document.getElementById("search").getContext("2d");
+            var pieCharData = new Chart(ctx4,{
+                type: 'doughnut',
+                data: {
+                    labels: ['Baidu','Bing','Google','Yandex'],
+                    datasets: [
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(153, 102, 255, 0.2)'],
+                            data: [baiduArray[6],bingArray[6],googleArray[6],yandexArray[6]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(153, 102, 255, 0.2)'],
+                            data: [baiduArray[5],bingArray[5],googleArray[5],yandexArray[5]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(153, 102, 255, 0.2)'],
+                            data: [baiduArray[4],bingArray[4],googleArray[4],yandexArray[4]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(153, 102, 255, 0.2)'],
+                            data: [baiduArray[3],bingArray[3],googleArray[3],yandexArray[3]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(153, 102, 255, 0.2)'],
+                            data: [baiduArray[2],bingArray[2],googleArray[2],yandexArray[2]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(153, 102, 255, 0.2)'],
+                            data: [baiduArray[1],bingArray[1],googleArray[1],yandexArray[1]]
+                        },
+                        {
+                            backgroundColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(153, 102, 255, 0.2)'],
+                            data: [baiduArray[0],bingArray[0],googleArray[0],yandexArray[0]]
+                        },
                     ]
                 }
             })
